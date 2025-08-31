@@ -7,6 +7,15 @@ import { DropdownItem } from "../ui/dropdown/DropdownItem";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 
+// Extend window interface for Umami
+declare global {
+  interface Window {
+    umami?: {
+      track: (event: string, data?: Record<string, any>) => void;
+    };
+  }
+}
+
 export default function UserDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
@@ -17,6 +26,13 @@ function toggleDropdown(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
 }
 
 const handleSignOut = () => {
+  // Track logout event with Umami
+  if (typeof window !== "undefined" && window.umami) {
+    window.umami.track('logout', {
+      timestamp: new Date().toISOString()
+    });
+  }
+
   localStorage.removeItem("auth");
   localStorage.removeItem("location_id");
   localStorage.removeItem("kd_propinsi");
