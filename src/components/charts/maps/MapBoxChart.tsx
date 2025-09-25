@@ -46,8 +46,8 @@ const MapboxChart: React.FC<MapboxChartProps> = ({ className = "", height = "400
   const { selected: selectedKel, setSelected: setSelectedKel } = useKelurahanStore();
 
   // Fetch geojson and provinsi list
-  let URL_GEOMETRY='https://bgn-be.anakanjeng.site/maps/geometry'
-  let URL_POINT='https://bgn-be.anakanjeng.site/maps/centroid'
+  let URL_GEOMETRY='https://bgn-be.laice.tech/maps/geometry'
+  let URL_POINT='https://bgn-be.laice.tech/maps/centroid'
   // Mapbox logic
 
   useEffect(() => {

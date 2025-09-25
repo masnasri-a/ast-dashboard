@@ -15,7 +15,7 @@ const KelurahanDropdown: React.FC = () => {
     const { selected: selectedKel, setSelected: setSelectedKel } = useKelurahanStore();
 
 	useEffect(() => {
-		fetch('https://bgn-be.anakanjeng.site/maps/centroid?kd_propinsi=' + selectedProv?.kd_propinsi + '&kd_kabupaten=' + selectedKab?.kd_kabupaten + '&kd_kecamatan=' + selectedKec?.kd_kecamatan)
+		fetch('https://bgn-be.laice.tech/maps/centroid?kd_propinsi=' + selectedProv?.kd_propinsi + '&kd_kabupaten=' + selectedKab?.kd_kabupaten + '&kd_kecamatan=' + selectedKec?.kd_kecamatan)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data && data.features) {

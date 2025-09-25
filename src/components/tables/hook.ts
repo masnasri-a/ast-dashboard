@@ -72,7 +72,7 @@ export const useUsersData = () => {
       setLoading(true);
       setError(null);
       
-      const response = await fetch('https://bgn-be.anakanjeng.site/users/list?page=1&limit=10');
+      const response = await fetch('https://bgn-be.laice.tech/users/list?page=1&limit=10');
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -95,7 +95,7 @@ export const useUsersData = () => {
 
   const createUser = async (userData: CreateUserData) => {
     try {
-      const response = await fetch('https://bgn-be.anakanjeng.site/users/create/', {
+      const response = await fetch('https://bgn-be.laice.tech/users/create/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ export const useUsersData = () => {
 
   const getUserById = async (userId: number): Promise<{ success: boolean; data?: ApiUser; error?: string }> => {
     try {
-      const response = await fetch(`https://bgn-be.anakanjeng.site/users/select/?user_id=${userId}`);
+      const response = await fetch(`https://bgn-be.laice.tech/users/select/?user_id=${userId}`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -131,7 +131,7 @@ export const useUsersData = () => {
 
   const updateUser = async (userId: number, userData: UpdateUserData) => {
     try {
-      const response = await fetch(`https://bgn-be.anakanjeng.site/users/update/?user_id=${userId}`, {
+      const response = await fetch(`https://bgn-be.laice.tech/users/update/?user_id=${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -152,7 +152,7 @@ export const useUsersData = () => {
 
   const deleteUser = async (userId: number) => {
     try {
-      const response = await fetch(`https://bgn-be.anakanjeng.site/users/delete/?user_id=${userId}`, {
+      const response = await fetch(`https://bgn-be.laice.tech/users/delete/?user_id=${userId}`, {
         method: 'DELETE',
       });
 

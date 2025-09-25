@@ -43,7 +43,7 @@ interface LocationState {
   resetKelurahan: () => void;
 }
 
-const BASE_URL = 'https://bgn-be.anakanjeng.site/locations/list';
+const BASE_URL = 'https://bgn-be.laice.tech/locations/list';
 
 export const useLocationStore = create<LocationState>((set, get) => ({
   // Initial state

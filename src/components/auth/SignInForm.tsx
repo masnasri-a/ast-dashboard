@@ -31,7 +31,7 @@ export default function SignInForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const url = 'https://bgn-be.anakanjeng.site/auth/login'
+    const url = 'https://bgn-be.laice.tech/auth/login'
     const data = { username, password };
 
     fetch(url, {
@@ -61,7 +61,7 @@ export default function SignInForm() {
         }
 
         if (data.location_id !== null) {
-          fetch(`https://bgn-be.anakanjeng.site/locations/select?kd_propinsi=${data.location_id}`)
+          fetch(`https://bgn-be.laice.tech/locations/select?kd_propinsi=${data.location_id}`)
             .then(response => {
               if (response.ok) {
                 return response.json();

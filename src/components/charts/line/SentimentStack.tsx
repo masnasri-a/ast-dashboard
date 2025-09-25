@@ -65,7 +65,7 @@ export function SentimentStack() {
         if (selectedFilter && selectedFilter !== "Semua") {
             param.append("category", selectedFilter);
         }
-        fetch("https://bgn-be.anakanjeng.site/report_user/sentiment_category?" + param.toString())
+        fetch("https://bgn-be.laice.tech/report_user/sentiment_category?" + param.toString())
             .then((res) => res.json())
             .then((data) => {
                 // Transform API data to stacked bar format

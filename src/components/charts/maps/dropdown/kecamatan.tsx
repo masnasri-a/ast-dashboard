@@ -14,7 +14,7 @@ const KecamatanDropdown: React.FC = () => {
     const { selected: selectedKec, setSelected: setSelectedKec } = useKecamatanStore();
 
 	useEffect(() => {
-		fetch('https://bgn-be.anakanjeng.site/maps/centroid?kd_propinsi=' + selectedProv?.kd_propinsi + '&kd_kabupaten=' + selectedKab?.kd_kabupaten)
+		fetch('https://bgn-be.laice.tech/maps/centroid?kd_propinsi=' + selectedProv?.kd_propinsi + '&kd_kabupaten=' + selectedKab?.kd_kabupaten)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data && data.features) {

@@ -20,7 +20,7 @@ const ProvinsiDropdown: React.FC = () => {
             setDisabled(true);
         }
 
-		fetch('https://bgn-be.anakanjeng.site/maps/centroid')
+		fetch('https://bgn-be.laice.tech/maps/centroid')
 			.then((res) => res.json())
 			.then((data) => {
 				if (data && data.features) {

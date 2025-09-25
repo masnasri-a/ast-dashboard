@@ -13,7 +13,7 @@ const KabupatenDropdown: React.FC = () => {
     const { selected: selectedKab, setSelected: setSelectedKab } = useKabupatenStore();
 
 	useEffect(() => {
-		fetch('https://bgn-be.anakanjeng.site/maps/centroid?kd_propinsi=' + selectedProv?.kd_propinsi)
+		fetch('https://bgn-be.laice.tech/maps/centroid?kd_propinsi=' + selectedProv?.kd_propinsi)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data && data.features) {

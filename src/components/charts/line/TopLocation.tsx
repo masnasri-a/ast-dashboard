@@ -48,7 +48,7 @@ export function TopLocation() {
     if (selectedKab !== null) param.append("kd_kabupaten", selectedKab.kd_kabupaten);
     if (selectedKec !== null) param.append("kd_kecamatan", selectedKec.kd_kecamatan);
     if (selectedKel !== null) param.append("kd_kelurahan", selectedKel.kd_kelurahan);
-    const urls = "https://bgn-be.anakanjeng.site/report_user/total_per_location?" + param.toString()
+    const urls = "https://bgn-be.laice.tech/report_user/total_per_location?" + param.toString()
     fetch(urls)
       .then((res) => res.json())
       .then((data) => {
